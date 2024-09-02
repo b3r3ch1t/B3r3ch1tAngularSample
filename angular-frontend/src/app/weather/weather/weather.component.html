@@ -1,0 +1,19 @@
+
+
+<div *ngIf="error" class="error">
+  <p>{{ error }}</p>
+</div>
+
+<div *ngIf="!error && weatherForecasts.length">
+  <h2>Weather Forecast</h2>
+  <ul>
+    <li *ngFor="let forecast of weatherForecasts">
+      <strong>{{ forecast.date | date }}</strong>:
+      {{ forecast.temperatureC }} °C / {{ forecast.temperatureF }} °F - {{ forecast.summary }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!error && !weatherForecasts.length">
+  <p>No weather data available at the moment.</p>
+</div>
